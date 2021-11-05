@@ -10,8 +10,6 @@ var highestPeak = function (isWater) {
       if (isWater[i][j] === 1) {
         queue.push([i, j]);
         arr[i][j] = 0;
-      } else {
-        arr[i][j] = -1;
       }
     }
   }
@@ -21,9 +19,8 @@ var highestPeak = function (isWater) {
     [0, -1],
     [0, 1],
   ];
-  let i = 0;
-  while (i < queue.length) {
-    let [y, x] = queue[i];
+  while (queue.length > 0) {
+    let [y, x] = queue.shift();
     for (let coordinate of coordinates) {
       let y_diff = y + coordinate[0];
       let x_diff = x + coordinate[1];
@@ -39,7 +36,6 @@ var highestPeak = function (isWater) {
       arr[y_diff][x_diff] = arr[y][x] + 1;
       queue.push([y_diff, x_diff]);
     }
-    i++;
   }
   return arr;
 };
