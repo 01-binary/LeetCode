@@ -20,14 +20,13 @@ var removeElements = function (head, val) {
   let prevNode;
 
   while (currentNode) {
-    //1 2 2 1 | 2 2 1
     if (currentNode.val === val) {
-      prevNode.next = currentNode.next; // 1 2 1
+      prevNode.next = currentNode.next;
     }
     else {
-      prevNode = currentNode; // 1 2 2 1 |
+      prevNode = currentNode;
     }
-    currentNode = currentNode.next; // 2 2 1
+    currentNode = currentNode.next;
   }
 
   return head;
